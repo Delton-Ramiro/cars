@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Dealer Agency</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background: #333;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            margin: 0.5rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        .car-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .car-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .car-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .car-card img {
+            width: 100%;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .car-card h3 {
+            font-size: 1.5rem;
+            margin: 0.5rem;
+        }
+
+        .car-card p {
+            font-size: 1rem;
+            color: #555;
+            margin: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: #333;
+            color: white;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to Prime Car Dealers</h1>
+        <p>Explore our collection of top-notch vehicles!</p>
+    </header>
+    <div class="container">
+        <div class="car-list" id="car-list">
+            <!-- Dynamic car cards will be inserted here -->
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Prime Car Dealers. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const carList = document.getElementById('car-list');
+
+        const cars = [
+            { name: "Luxury Sedan", description: "Smooth and elegant ride.", image: "https://source.unsplash.com/300x200/?car,luxury" },
+            { name: "SUV Adventure", description: "Perfect for off-road trips.", image: "https://source.unsplash.com/300x200/?car,suv" },
+            { name: "Sports Car", description: "Experience speed and style.", image: "https://source.unsplash.com/300x200/?car,sports" },
+            { name: "Electric Car", description: "Eco-friendly and efficient.", image: "https://source.unsplash.com/300x200/?car,electric" },
+            { name: "Classic Vintage", description: "Timeless design and performance.", image: "https://source.unsplash.com/300x200/?car,vintage" }
+        ];
+
+        cars.forEach(car => {
+            const carCard = document.createElement('div');
+            carCard.classList.add('car-card');
+            carCard.innerHTML = `
+        <img src="${car.image}" alt="${car.name}">
+        <h3>${car.name}</h3>
+        <p>${car.description}</p>
+      `;
+            carList.appendChild(carCard);
+        });
+    </script>
+</body>
+
+</html>
